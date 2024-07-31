@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Base class
+class Shape {
+public:
+    // Virtual function to calculate area
+    virtual double area() const = 0;
+
+    // Virtual function to display shape information
+    virtual void display() const = 0;
+
+    // Virtual destructor
+    virtual ~Shape() {}
+};
+
+// Derived class for Circle
+class Circle : public Shape {
+private:
+    double radius;
+
+public:
+    // Constructor
+    Circle(double r) : radius(r) {}
+
+    // Override area function
+    double area() const override {
+        return M_PI * radius * radius;
+    }
+
+    // Override display function
+    void display() const override {
+        cout << "Circle: Radius = " << radius << ", Area = " << area() << endl;
+    }
+};
+
+// Derived class for Rectangle
+class Rectangle : public Shape {
+private:
+    double width, height;
+
+public:
+    // Constructor
+    Rectangle(double w, double h) : width(w), height(h) {}
+
+    // Override area function
+    double area() const override {
+        return width * height;
+    }
+
+    // Override display function
+    void display() const override {
+        cout << "Rectangle: Width = " << width << ", Height = " << height << ", Area = " << area() << endl;
+    }
+};
+
+// Derived class for Triangle
+class Triangle : public Shape {
+private:
+    double base, height;
+
+public:
+    // Constructor
+    Triangle(double b, double h) : base(b), height(h) {}
+
+    // Override area function
+    double area() const override {
+        return 0.5 * base * height;
+    }
+
+    // Override display function
+    void display() const override {
+        cout << "Triangle: Base = " << base << ", Height = " << height << ", Area = " << area() << endl;
+    }
+};
+
+int main() 
